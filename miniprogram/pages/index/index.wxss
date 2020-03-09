@@ -1,0 +1,46 @@
+.shoplist{
+  background-color: #fff;
+  display: flex;
+  height: 220rpx;
+  padding: 10px;
+  border-bottom: 1px solid #1296db;
+  font-size: 25rpx;
+}
+.shopinfo{
+  flex: 1
+}
+.shoptitle{
+  /* color: #666; */
+  font-size: 40rpx;
+  font-weight: bolder;
+}
+.gomap{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 50rpx;
+}
+/** 搜索热点标题 */
+.wxSearchTitle{
+  display: block;
+  padding: 10px 5px 5px 10px;
+  font-size: 13px;
+  text-align: left;
+}
+/** 标签样式 */
+.wxSearchKeyList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+/** 标签样式 */
+.wxSearchKeyItem{
+  flex: 0 0 18%;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #eee;
+  margin: 5px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 0px;
+  background-color: rgba(200, 200, 200, 0.1);
+}

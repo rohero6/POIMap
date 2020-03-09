@@ -1,0 +1,30 @@
+<map id="myMap" style="width: 100vh; height: 40vh; " latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location bindmarkertap="selectMarket" include-points="{{markers}}" bindcallouttap="toaddress" scale = '15' ></map>
+
+<van-search value="{{ keywords }}" placeholder="请输入搜索关键词" bind:change="onChange"  bind:search="searchAll"
+  bind:cancel="onCancel"  use-action-slot="true" bindtap='showHot'>
+   <view slot="action" bind:tap="searchAll">搜索</view>
+</van-search>
+<view class="wxSearchKey" wx:if="{{showHot}}" >
+      <!-- <text wx:if="{{hotKeys[0]}}" class="wxSearchTitle"></text> -->
+      <view class="wxSearchKeyList">
+        <block wx:for="{{hotKeys}}">
+          <view class="wxSearchKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+
+
+<scroll-view scroll-y style="height: 50vh;"   scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="shoplist" wx:for="{{markers}}" wx:key="{{index}}">
+  <view class="shopinfo"  >
+    <view class="shoptitle">{{item.title}}</view>
+    <view class="category">{{item.category}}</view>
+    <view class="tel" wx:if="{{item.tel.length>4}}">电话:{{item.tel}}</view>
+    <view class="address">地址:{{item.address}}</view>
+    <view class="distance">距您：{{item.distance}}km</view>
+  </view>
+  <image class="gomap" src='../../images/gps.png' data-mapdel="{{item}}" bindtap="tomap"></image>
+</view>
+
+</scroll-view>

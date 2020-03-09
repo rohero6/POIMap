@@ -1,0 +1,3 @@
+<van-search value="{{ keywords }}" placeholder="请输入搜索关键词"   bind:search="onSearch"
+  bind:cancel="onCancel" />
+<map id="myMap" style="width: {{mapWidth}}rpx; height: {{mapHeight}}rpx;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location bindmarkertap="selectMarket" include-points="{{markers}}" bindmarkertap="toaddress" scale = '16' ></map>
