@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/recommend/recommend"
     
   ],
   "window": {
@@ -16,16 +17,17 @@
     "selectedColor": "#FF1493",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "主页",
-        "iconPath": "images/index.png",
-        "selectedIconPath": "images/index_act.png"
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐",
+        "iconPath": "images/hot.png",
+        "selectedIconPath": "images/hot_act.png"
       },
       {
-        "pagePath": "pages/map/map",
-        "text": "地图",
+        "pagePath": "pages/index/index",
+        "text": "Map",
         "iconPath": "images/map.png",
         "selectedIconPath": "images/map_act.png"
+       
       }
      
     ]
