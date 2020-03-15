@@ -1,2 +1,28 @@
-<!--pages/recommend/recommend.wxml-->
-<text>pages/recommend/recommend.wxml</text>
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="美食">
+  <scroll-view>
+  <block class="food" wx:for="{{foodList}}" wx:key="{{index}}">
+   <van-card
+  
+  desc="{{item.category}}"
+  title="{{item.name}}"
+  thumb="{{item.imageUrl}}"
+/>
+  </block>
+  </scroll-view>
+  
+  </van-tab>
+
+
+
+
+
+
+
+
+
+
+  <van-tab title="小吃">内容 2</van-tab>
+  <van-tab title="景点">内容 3</van-tab>
+  <van-tab title="客栈">内容 4</van-tab>
+</van-tabs>
