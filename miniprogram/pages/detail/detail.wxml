@@ -1,0 +1,8 @@
+
+<!-- <view class="title">{{snack.title}}</view>
+<view class="content">{{snack.content}}</view> -->
+<!-- <view class="newsDt_wrap">
+        <template is="wxParse" data="{{wxParseData:detail_content.nodes}}" />
+        <view class="last_date">最后更新于：{{initDate.publish_time}}</view>
+    </view> -->
+<parser html="{{snack.pagesource}}" />

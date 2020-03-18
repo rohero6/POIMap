@@ -22,7 +22,14 @@
 
 
 
-  <van-tab title="小吃">内容 2</van-tab>
+  <van-tab title="小吃">
+  <block class="snackslist"  wx:for="{{snacks}}" wx:key="index">
+    <l-list  title="{{item.title}}" is-link="{{false}}" link-type="navigateTo" url='../detail/detail?index={{index}}' />
+  </block>
+  
+  
+  
+  </van-tab>
   <van-tab title="景点">内容 3</van-tab>
   <van-tab title="客栈">内容 4</van-tab>
 </van-tabs>

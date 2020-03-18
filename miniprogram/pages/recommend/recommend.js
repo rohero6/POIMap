@@ -1,3 +1,6 @@
+// 云函数入口文件
+const db = wx.cloud.database();
+const app =getApp()
 Page({
 
   /**
@@ -17,6 +20,8 @@ Page({
         imageUrl:'https://mmbiz.qpic.cn/mmbiz_png/pkm06nQ34NR5aDaWqib3EXQvwyxwNcCtzuwWv49CFDdiafzMTNfal19k5PRXtpuqnbokP8FLbVFSm8bNHPQRgHjQ/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1'
       }
                 ],
+      snacks:[]
+
   },
   onChange(event) {
     this.setData({
@@ -27,15 +32,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  },
-  //获取当前滑块的index
-  setTab: function (e) {
-    const edata = e.currentTarget.dataset;
+    wx.cloud.callFunction({
+      name:'getSnack'
+    }).then(res=>{
+      console.log(res)
+      app.globalData.snackArticle = res.result.data
+      this.setData({
+        snacks:res.result.data
+      })
+    }).catch(err=>{
+      console.log(err)
+    })
     this.setData({
-      showtab: edata.tabindex,
-
+      snacks: app.globalData.snackArticle
     })
   },
+ 
   //点击切换，滑块index赋值
   
   onReady: function () {

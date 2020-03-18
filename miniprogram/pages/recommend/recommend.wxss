@@ -1,3 +1,6 @@
 .food{
   border-bottom: 1px  #333 
 }
+.snackslist{
+  border-bottom: 1px  #333 
+}

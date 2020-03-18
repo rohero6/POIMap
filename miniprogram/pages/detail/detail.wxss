@@ -1,0 +1,9 @@
+
+.title{
+  font-size: 35rpx;
+  justify-content: center
+}
+.content{
+  font-size: 30rpx;
+  word-spacing: 3rpx;
+}

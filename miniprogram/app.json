@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/map/map",
-    "pages/recommend/recommend"
+    "pages/recommend/recommend",
+    "pages/detail/detail"
     
   ],
   "window": {
@@ -27,8 +28,8 @@
         "text": "Map",
         "iconPath": "images/map.png",
         "selectedIconPath": "images/map_act.png"
-       
       }
+      
      
     ]
   },
