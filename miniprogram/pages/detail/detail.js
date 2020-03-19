@@ -32,15 +32,7 @@ Page({
       snack: that.data.snacksList[index]
     })
 
-    db.collection('source').get().then(res=>{
-      
-      that.setData({
-        html: res.data[0].pagesource
-      })
-    }).catch(err=>{
-      console.log(err)
-    })
-  
+   
 
 
   },

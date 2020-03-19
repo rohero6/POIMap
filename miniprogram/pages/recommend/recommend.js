@@ -28,24 +28,36 @@ Page({
       activeNames: event.detail
     });
   },
+  getSnackList(limit){
+    wx.showLoading({
+      title: '加载中',
+    })
+    console.log('skip:'+this.data.snacks.length)
+    console.log('limit:'+limit)
+    wx.cloud.callFunction({
+      name: 'getSnack',
+      data: {
+        skip: this.data.snacks.length,
+        limit:limit
+      }
+    }).then(res => {
+      console.log(res)
+     
+      this.setData({
+        snacks: this.data.snacks.concat(res.result.data)   //拼接到snack后面  追加 的意思
+      })
+      app.globalData.snackArticle = this.data.snacks   //赋值到全局变量
+    }).catch(err => {
+      console.log(err)
+    })
+    wx.hideLoading()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.callFunction({
-      name:'getSnack'
-    }).then(res=>{
-      console.log(res)
-      app.globalData.snackArticle = res.result.data
-      this.setData({
-        snacks:res.result.data
-      })
-    }).catch(err=>{
-      console.log(err)
-    })
-    this.setData({
-      snacks: app.globalData.snackArticle
-    })
+   this.getSnackList(10);  //调用云函数获取小吃文章 首次次10条
+
   },
  
   //点击切换，滑块index赋值
@@ -86,7 +98,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getSnackList(5)
+    wx.showToast({
+      title: '加载完成',
+    })
   },
 
   /**
